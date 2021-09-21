@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/users', function (req, res) {
-
+  res.header("Content-Type", "application/json");
   res.json([
     {"id":0,"name":"Ayus","username":"ayus","email":"anggareta@dana.io","address":{"street":"pasirimpun","suite":"Suite 26","city":"Bandung","zipcode":"40121","geo":{"lat":"33","lng":"-99"}},"phone":"(22)7777 x111","website":"ayusreta.net","company":{"name":"mansek","catchPhrase":"development","bs":"coding"}},
 	{"id":9,"name":"Glenna Reichert","username":"Delphine","email":"Chaim_McDermott@dana.io","address":{"street":"Dayna Park","suite":"Suite 449","city":"Bartholomebury","zipcode":"76495-3109","geo":{"lat":"24.6463","lng":"-168.8889"}},"phone":"(775)976-6794 x41206","website":"conrad.com","company":{"name":"Yost and Sons","catchPhrase":"Switchable contextually-based project","bs":"aggregate real-time technologies"}},
