@@ -4,11 +4,12 @@ const PORT = process.env.PORT || 3000;
 var app = express();
 
 app.get('/', function (req, res) {
+  res.header("Content-Type", "application/json");	
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   // initialize the container for our data
   const { headers, method, url } = req;
-  let body = [{pesan:"halo dunia..!"},{url:"/users"},{port:PORT}];
+  let body = [{pesan:"halo dunia...!"},{url:"/users"},{port:PORT}];
   const responseBody = { headers, method, url, body };
   //res.send(JSON.stringify(responseBody));
   res.json(responseBody);
@@ -19,6 +20,7 @@ app.get('/', function (req, res) {
 app.get('/users', function (req, res) {
 
   res.json([
+    {"id":0,"name":"Ayus","username":"ayus","email":"anggareta@dana.io","address":{"street":"pasirimpun","suite":"Suite 26","city":"Bandung","zipcode":"40121","geo":{"lat":"33","lng":"-99"}},"phone":"(22)7777 x111","website":"ayusreta.net","company":{"name":"mansek","catchPhrase":"development","bs":"coding"}},
 	{"id":9,"name":"Glenna Reichert","username":"Delphine","email":"Chaim_McDermott@dana.io","address":{"street":"Dayna Park","suite":"Suite 449","city":"Bartholomebury","zipcode":"76495-3109","geo":{"lat":"24.6463","lng":"-168.8889"}},"phone":"(775)976-6794 x41206","website":"conrad.com","company":{"name":"Yost and Sons","catchPhrase":"Switchable contextually-based project","bs":"aggregate real-time technologies"}},
 	{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}},
 	{"id":3,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","address":{"street":"Douglas Extension","suite":"Suite 847","city":"McKenziehaven","zipcode":"59590-4157","geo":{"lat":"-68.6102","lng":"-47.0653"}},"phone":"1-463-123-4447","website":"ramiro.info","company":{"name":"Romaguera-Jacobson","catchPhrase":"Face to face bifurcated interface","bs":"e-enable strategic applications"}}
