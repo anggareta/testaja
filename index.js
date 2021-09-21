@@ -1,13 +1,14 @@
 const express = require("express");
-const PORT = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
-const hostname = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+const PORT = process.env.PORT || 3000;
 
 var app = express();
 
 app.get('/', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   // initialize the container for our data
   const { headers, method, url } = req;
-  let body = [{pesan:"halo dunia!"},{url:"/users"},{port:PORT}];
+  let body = [{pesan:"halo dunia..!"},{url:"/users"},{port:PORT}];
   const responseBody = { headers, method, url, body };
   //res.send(JSON.stringify(responseBody));
   res.json(responseBody);
@@ -25,7 +26,7 @@ app.get('/users', function (req, res) {
 
 });
 
-var server = app.listen(PORT, hostname, function () {
+var server = app.listen(PORT, function () {
   console.log(`Server is running.., listen on ${PORT}`);
 });
 
