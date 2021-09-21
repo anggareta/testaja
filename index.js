@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
   //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   // initialize the container for our data
   const { headers, method, url } = req;
-  let body = [{pesan:"halo dunia...!"},{url:"/users"},{port:PORT}];
+  let body = [{pesan:"halo dunia...!"},{url:"/users"},{url:"/fruit"},{port:PORT}];
   const responseBody = { headers, method, url, body };
   //res.send(JSON.stringify(responseBody));
   res.json(responseBody);
@@ -25,6 +25,13 @@ app.get('/users', function (req, res) {
 	{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}},
 	{"id":3,"name":"Clementine Bauch","username":"Samantha","email":"Nathan@yesenia.net","address":{"street":"Douglas Extension","suite":"Suite 847","city":"McKenziehaven","zipcode":"59590-4157","geo":{"lat":"-68.6102","lng":"-47.0653"}},"phone":"1-463-123-4447","website":"ramiro.info","company":{"name":"Romaguera-Jacobson","catchPhrase":"Face to face bifurcated interface","bs":"e-enable strategic applications"}}
   ]);
+
+});
+
+app.get('/fruit', function (req, res) {
+  res.header("Content-Type", "application/json");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.json({"items":[{"id": 1,"name":"Apples","price":"$3"},{"id":2,"name":"Peaches","price":"$2"},{"id":2,"name":"Avocado","price":"$7"}]});
 
 });
 
